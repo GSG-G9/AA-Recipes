@@ -37,15 +37,13 @@ const getBySearch = (req, res) => {
   searchFood(search)
     .then((result) => {
       // eslint-disable-next-line no-console
-      console.log(result);
+      // console.log(result);
       res.json(result);
       // eslint-disable-next-line no-console
     })
     // eslint-disable-next-line no-console
     .catch(console.error);
 };
-
-// console.log(searchFood(searchTest));
 
 module.exports = {
   getBySearch,
