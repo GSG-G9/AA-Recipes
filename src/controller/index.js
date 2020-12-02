@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const { appid, appkey } = process.env;
+const { API_ID, API_KEY } = process.env;
 
 // const appid = 'cbbe1a4d';
 // const appkey = 'ba846de8038642ef3e5c1e2ff1dd39e3';
@@ -22,19 +22,15 @@ const dataHandler = (data) => {
   return null;
 };
 
-const searchFood = (search) => {
-  fetch(
-    `https://api.edamam.com/search?q=${search}&app_id=${appid}&app_key=${appkey}`,
-  )
-    .then((response) => response.json())
-    .then((data) => dataHandler(data))
-    .then((result) => console.log(result, 555555))
-    .catch((ERR) => { console.log(ERR); });
-};
+const searchFood = (search) => fetch(
+  `https://api.edamam.com/search?q=${search}&app_id=${API_ID}&app_key=${API_KEY}`,
+)
+  .then((response) => response.json())
+  .then((data) => dataHandler(data));
 
 const getBySearch = (req, res) => {
-  const { search } = req.body;
-  searchFood(search)
+  const { q } = req.query;
+  searchFood(q)
     .then((result) => {
       // eslint-disable-next-line no-console
       console.log(result);
