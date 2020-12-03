@@ -1,5 +1,4 @@
 const animesContainer = document.getElementById('food-container');
-// const switchToAnimeBtn = document.getElementById('switch-to-anime');
 
 const singleItemStructure = (response) => {
   const singleAnimeContainer = document.createElement('div');

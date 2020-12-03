@@ -2,7 +2,6 @@ const searchInput = document.getElementById('search-input');
 const switchTofoodBtn = document.getElementById('switch-to-food');
 
 const renderData = (data) => {
-  // console.log(data);
   data.forEach((item) => {
     singleItemStructure(item);
   });
